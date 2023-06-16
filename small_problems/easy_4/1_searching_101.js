@@ -22,15 +22,16 @@ DATA STRUCTURE:
 
 ALGORITHM:
 1) Declare and initialize userInput [] empty array
-1) Use Readline-Sync to get user input: 6 integers
-  - If user does not provide an integer, provide an error message & repeat step 1
+2) Use Readline-Sync to get user input: 6 integers
+  - If user does not provide an integer, provide an error message & repeat step 2
   - If user provides an integer, populate array with number
-2) Iterate through array: Use .some() array method
+3) Iterate through array: Use .some() array method
   - Check if array[array.length - 1] === array indexes 0-5
     - If true, output positive mesage
     - If false, output negative message
 */
 
+// CODE VERSION 1:
 const RLSYNC = require("readline-sync");
 const INT_AMOUNT = 6;
 let userInput = [];

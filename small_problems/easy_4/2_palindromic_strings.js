@@ -1,8 +1,9 @@
-/* Write a function that returns true if the string passed as an argument is a 
+/* PROBLEM:
+
+Write a function that returns true if the string passed as an argument is a 
 palindrome, or false otherwise. A palindrome reads the same forwards and 
 backwards. For this problem, the case matters and all characters matter.
 
-PROBLEM:
 INPUT: string
 OUTPUT: boolean true/false (if string is palindrome or not)
 
@@ -31,12 +32,13 @@ DATA STRUCTURE:
 
 ALGORITHM:
 - Define isPalindrome() function with a single string parameter
-- Convert string to array, with each character at a separate index: split("")
-- Reverse the array: reverse()
-- Join the array back into a new string: join("")
-- Compare the original string with the new string
-  - IF equal, return true
-  - ELSE, return false
+- Invoke isPalindrome() and pass in string as argument
+  - Convert string to array, with each character at a separate index: split("")
+  - Reverse the array: reverse()
+  - Join the array back into a new string: join("")
+  - Compare the original string with the new string:
+    - IF orginal = reverse, return TRUE
+    - ELSE, return FALSE
 
 CODE:
 */

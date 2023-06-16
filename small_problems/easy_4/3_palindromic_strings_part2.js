@@ -1,13 +1,14 @@
-/* Write a function that returns true if the string passed as an argument is a 
+/* PROBLEM:
+
+Write a function that returns true if the string passed as an argument is a 
 palindrome, or false otherwise. This time, however, your function should be 
 case-insensitive, and should ignore all non-alphanumeric characters.
 
-PROBLEM:
-INPUT: string
+INPUT: string of words/characters
 OUTPUT: boolean true/false (if string is palindrome or not)
 
 EXPLICIT RULES:
-- Return true/false if string argument passed to function is a palindrome
+- Return true if string argument passed to function is a palindrome, else false
 - A palindrome:
   - Reads the same forwards and backwards
   - Case-insensitive
@@ -28,28 +29,31 @@ isRealPalindrome('123ab321');            // false
 DATA STRUCTURE:
 - Input is a string
 - Create new string with only alphabetical and numeric characters
-- Convert string to array to reverse the string characters
-- Convert reversed array to string to compare
+- Copy string:
+  - Convert string to array to reverse the string characters
+  - Convert reversed array to string to compare
 - Compare reversed string w/alphanumeric string
 - Return boolean true/false
 
 ALGORITHM:
-- Define isRealPalindrome() function with a single string parameter
-- Within body of isPalindrome(), invoke function createAlphanumericString()
-  - pass input string as argument
-  - create empty returnString " "
-  - convert string to all lower case: toLowerCase();
-  - iterate through each index of the lowercase string
-    - IF character is alphaneumeric, add it to returnString:
-      - ABC: char.charCode() >= 97 && char.charCodeAt() <= 122
-      - 123: char.charCodeAt() >= 48 && char.charCodeAt() <= 57
-  - return returnString
-- Convert returnString to array, with each character at a separate index: split("")
-- Reverse the array: reverse()
-- Join the array back into a new string: join("")
-- Compare the original string with the new string
-  - IF equal, return true
-  - ELSE, return false
+- Define isRealPalindrome() function with a single string parameter:
+- Invoke isRealPalindrome() and pass in string as argument:
+  - declare variable abc123String
+  - initialize abc123String to the return value of invoking function 
+    createAlphanumericalString() and passing in string as the argument
+    - declare variable returnString and initialize to empty string ""
+    - convert string to all lower case: toLowerCase();
+    - iterate through each index of the lowercase string: for loop:
+      - IF character is alphaneumeric, add it to returnString:
+        - ABC: char >= "a" && char <= "z"
+        - 123: char >= "0" && char <= "9"
+    - return returnString
+  - Convert returnString to array, with each char at a separate index: split("")
+  - Reverse the array: reverse()
+  - Join the array back into a new string: join("")
+  - Compare the original string with the new reversed string
+    - IF equal, return TRUE
+    - ELSE, return FALSE
 
 CODE:
 */
@@ -65,9 +69,9 @@ function createAlphanumericString(string) {
   string = string.toLowerCase();
   for (let index = 0; index < string.length; index += 1) {
     let char = string[index];
-    if (char.charCodeAt() >= 97 && char.charCodeAt() <= 122) {
+    if (char >= "a" && char <= "z") {
       returnString += char;
-    } else if (char.charCodeAt() >= 48 && char.charCodeAt() <= 57) {
+    } else if (char >= "0" && char <= "9") {
       returnString += char;
     }
   }
