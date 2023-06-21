@@ -35,24 +35,29 @@ ALGORITHM:
 1) Check if input === 0:
     - If YES: Return 0
     - Else: Continue
-2) Declare and initiaize totalBlocks to input
-3) Declare and initialize blocksUsed to 0
-4) Declare and initialize layer to 1
-5) Check if blocks used is <= totalBlocks
-    - If YES: add layer squared to totalBlocks and increment layer by 1
-    - If NO: break;
+2) Declare blocksRemaining and initialize to value of input
+3) Declare blocksUsed and initialize to 0
+4) Declare layer and initialize to 0
+5) Check if blocksRemaining is >= blocksUsed
+    - IF it evaluates to true: 
+        - subtract blocksUsed from blocksRemaining and save value as 
+          blocksRemaining
+        - Increment layer by 1
+        - Update the value of blocksUsed to (layer + 1) squared
+    - ELSE breakl
+6) Return blocksRemaining
 
 */
 
 function calculateLeftoverBlocks(input) {
   let blocksRemaining = input; //2
   let layer = 0;
-  let blocksUsed = (layer + 1)**2;
+  let blocksUsed = (layer + 1) * (layer + 1);
   
   while (blocksRemaining >= blocksUsed) {
    blocksRemaining -= blocksUsed;
    layer += 1;
-   blocksUsed = (layer + 1)**2;
+   blocksUsed = (layer + 1) * (layer + 1);
   }
   return blocksRemaining;
 }

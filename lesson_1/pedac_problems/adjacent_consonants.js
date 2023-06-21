@@ -29,9 +29,19 @@ DATA STRUCTURE:
 ALGORITHM:
 1) Start with an array of strings as input
 2) Count how many adjacent consonants each element has:
-    - 
-3) Order array by amount of consonants
-
+    - SET highestCount variable to 0
+    - SET count variable to 0
+    - iterate through string indexes string.length amount of times:
+      - Each iteration, check if the current string index is a consonant:
+        - IF it is, increment count by 1
+          - Check if count > highestCount
+            - IF it is, SET highestCount = count;
+        - ELSE if it is a vowel, SET count = 0
+      - Once you've iterated through the entire word, check if highestCount is
+        equal to 1; if it is, set it to 0
+      - Return highest count
+3) Order array by amount of adjacent consonants
+4) Return the array
 
 */
 
